@@ -59,7 +59,9 @@ function x = lab1(U1, U2, U3, U4, T1, T2, Fd)
         title("График восстановленного сигнала"); xlabel("t, мс"); ylabel("s, В");
 
         subplot(4,2,8);
-        plot(t, s, T, Sd);
+        plot(t, s);
+        hold on;
+        stem(T, Sd);
         title("График дискретного и восстановленного сигналов"); xlabel("t, мс"); ylabel("s, В");
 
 end
