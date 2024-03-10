@@ -3,15 +3,9 @@
 function filter_analysis = lab2(U1, U2, U3, U4, T1, T2, Fd,a1,b1)
 
 % Создание дискретного сигнала из первой лабораторной
-T = 0:(1/Fd):T2; %Общая ось времени
-signal = zeros([size(T)]);
-for i = 1:length(T)
-    if T(i) < T1
-       signal(i) = T(i)*(U2 - U1)/T1 + U1; %из канонического уравнения прямой
-    else
-       signal(i) = (T(i)-T1)*(U4 - U3)/(T2-T1) + U3;
-    end
-end
+T = 0;
+signal = 0;
+[T, signal] = signal_form(U1, U2, U3, U4, T1, T2, Fd);
 signal = [signal zeros(size(signal))];
 
 % Создание вектора для максимальных
