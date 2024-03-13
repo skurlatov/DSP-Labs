@@ -1,12 +1,12 @@
 % Лабораторная работа №2 -  ДИСКРЕТНЫЕ ФИЛЬТРЫ
 % Данная функция реализует все пункты работы
-function filter_analysis = lab2(U1, U2, U3, U4, T1, T2, Fd,a1,b1)
+function filter_analysis = lab2(U1, U2, U3, U4, T1, T2, Fd,b1,a1)
 
 % Создание дискретного сигнала из первой лабораторной
 T = 0;
 signal = 0;
-[T, signal] = signal_form(U1, U2, U3, U4, T1, T2, Fd);
-signal = [signal zeros(size(signal))];
+[T, signal_tmp] = signal_form(U1, U2, U3, U4, T1, T2, Fd);
+signal = [signal_tmp zeros(1, 7*length(signal_tmp))];
 
 % Создание вектора для максимальных
 % по модулю значений сигналов при разных формах реализации
@@ -38,19 +38,18 @@ p_ang = angle(p);
 %Построение всех графиков лабораторной работы
 
 figure;
-subplot(1,3,1);
-stem(signal);
+stem(signal_tmp);
 title("Входной сигнал");
 xlabel("k");
 ylabel("x(k)");
 
-subplot(1,3,2);
+figure;
 stem(sig_out1);
 title("Выходной сигнал дискретного фильтра");
 xlabel("k");
 ylabel("y(k)");
 
-subplot(1,3,3);
+figure;
 stem(sig_out2);
 title("Сигнал дискретного фильтра канонической формы в элементах памяти");
 xlabel("k");
