@@ -25,15 +25,16 @@ for k = 1:length(signal)
     [sig_out3(k),cur] = filter(b1,a1,signal(k),cur);
     states = [states cur];
 end
-modmax(3) = max(max(abs(sig_out3)));
+modmax(3) = max(max(abs(states)));
+modmax
 % Получение аналитического выражения ИХ фильтра
 % Нахождение векторов вычетов, полюсов и целой части функции передачи
 [r,p,k] = residuez(b1,a1);
 % Модули и фазы полюсов и вычетов
-r_abs = abs(r);
-p_abs = abs(p);
-r_ang = angle(r);
-p_ang = angle(p);
+r_abs = abs(r)
+p_abs = abs(p)
+r_ang = angle(r)
+p_ang = angle(p)
 
 %Построение всех графиков лабораторной работы
 
