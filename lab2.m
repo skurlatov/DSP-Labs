@@ -14,10 +14,12 @@ modmax = zeros(3);
 
 % Дискретный фильтр (прямая форма)
 sig_out1 = filter(b1,a1,signal);
-modmax(1) = max(abs(sig_out1));
+modmax(1) = max([max(abs(sig_out1)),signal]);
+
 % Дискретный фильтр (каноническая форма)
 sig_out2 = filter(1,a1,signal); % Получение значений сигнала в элементах памяти
 modmax(2) = max(abs(sig_out2));
+
 % Дискретный фильтр (транспонированная форма)
 states = []; % Матрица внутренних состояний фильтра
 cur = []; % Текущее состояние фильтра
@@ -35,6 +37,7 @@ r_abs = abs(r)
 p_abs = abs(p)
 r_ang = angle(r)
 p_ang = angle(p)
+k
 
 %Построение всех графиков лабораторной работы
 
