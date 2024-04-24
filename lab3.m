@@ -87,10 +87,10 @@ function x = lab3(U1, U2, U3, U4, T1, T2, Fd)
     title("Фазы FFT сигнала, дополненного нулями"); xlabel("N, отсчеты"); ylabel("\phi, рад");
 
     subplot(4, 2, 7);
-    plot(log2(N), log(T_one_theory), log2(N), log((k1 * N.^2)*10^-9))
+    semilogy(log2(N), T_one_theory, log2(N), (k1 * N.^2)*10^-9)
     title("Время, затраченное на однократное вычисление ДПФ прямым способом"); xlabel("{log}_2 (N)"); ylabel("log(t)");
 
     subplot(4, 2, 8);
-    plot(log2(N), log(T_one_fft), log2(N), log((k2 * N .* log2(N))*10^-9))
+    semilogy(log2(N), T_one_fft, log2(N), (k2 * N .* log2(N))*10^-9)
     title("Время, затраченное на однократное вычисление ДПФ быстрым способом"); xlabel("{log}_2 (N)"); ylabel("log(t)");
 end
